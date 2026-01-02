@@ -4,7 +4,6 @@
 This case study documents the identification and evaluation of a standalone EC2 instance flagged for rightsizing using Datadog Cloud Cost and CloudWatch signals. Unlike cluster-managed capacity (EKS, EMR), this instance represents a true per-instance optimization candidate.
 
 ## Resource
-- **Instance ID:** i-0c0ddfd8a39749f9e
 - **Instance Type:** m5.4xlarge
 - **Region:** ca-central-1
 - **Operating System:** Windows
