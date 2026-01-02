@@ -17,6 +17,8 @@
 - Daily net amortized cost: ~$23/day
 - Cost is stable and predictable
 - Individually small, material at cluster scale
+- Cost derived via resource-level AWS CUR query (daily net amortized cost).
+
 
 ## Decision Logic
 This node is part of an EMR-managed cluster.  
