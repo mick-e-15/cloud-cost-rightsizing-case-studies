@@ -21,7 +21,7 @@ utilization analysis, cost attribution, risk assessment, and final action logic.
   - Snapshot-first deletion path
   - Direct, low-risk cost optimization
 
-- **[Kubernetes Worker Node – Capacity Signal Case Study](./k8s-worker-node/)** *(next)*
+- **[Kubernetes Worker Node – Capacity Signal Case Study](./k8s-worker-node/)** 
   - EKS / Karpenter-managed worker nodes
   - Utilization interpreted as capacity signal
   - Optimization routed to node pools and bin-packing
