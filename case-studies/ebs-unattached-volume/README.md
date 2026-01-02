@@ -2,7 +2,6 @@
 
 ## Resource
 - Type: EBS Volume
-- Volume ID: vol-XXXXXXXX
 - Region: us-east-2
 - State: available (unattached)
 - Size: XX GB
