@@ -2,7 +2,6 @@
 
 ## Resource
 - Type: EC2 (EMR-managed core node)
-- Instance ID: i-05e26ea89ed3531fd
 - Region: us-east-2
 - Instance Type: r6gd.12xlarge
 - Owner: Data Infrastructure / AutoJoin
