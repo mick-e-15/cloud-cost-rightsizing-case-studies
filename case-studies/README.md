@@ -26,7 +26,7 @@ utilization analysis, cost attribution, risk assessment, and final action logic.
   - Utilization interpreted as capacity signal
   - Optimization routed to node pools and bin-packing
 
-- **[Standalone EC2 Instance – True Rightsizing Candidate](./standalone-ec2-instance/)** *(planned)*
+- **[Standalone EC2 Instance – True Rightsizing Candidate](./standalone-ec2-instance/)** 
   - Non-managed EC2 instance
   - Sustained low utilization
   - Direct resize or scheduling opportunity
