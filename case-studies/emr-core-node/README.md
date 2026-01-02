@@ -29,3 +29,8 @@ Low utilization reflects batch workload patterns, not waste.
 - Status: Valid signal, not directly actionable
 - Optimization type: Cluster-level
 - Risk if misapplied: High
+
+## FinOps Takeaway
+
+This instance-level signal was used to validate cluster economics, not to trigger resizing.
+True optimization opportunities exist at the EMR cluster configuration and job parallelism level, not per-node rightsizing.
