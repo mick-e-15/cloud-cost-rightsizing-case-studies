@@ -1,35 +1,52 @@
-# EMR Core Node – Rightsizing & Risk Analysis
+# Standalone EC2 Rightsizing Case Study
+
+## Overview
+This case study documents the identification and evaluation of a standalone EC2 instance flagged for rightsizing using Datadog Cloud Cost and CloudWatch signals. Unlike cluster-managed capacity (EKS, EMR), this instance represents a true per-instance optimization candidate.
 
 ## Resource
-- **Type:** EC2 (EMR-managed core node)
-- **Instance ID:** i-05e26ea89ed3531fd
-- **Region:** us-east-2
-- **Instance Type:** r6gd.12xlarge
-- **Owner:** Data Infrastructure / AutoJoin
+- **Instance ID:** i-0c0ddfd8a39749f9e
+- **Instance Type:** m5.4xlarge
+- **Region:** ca-central-1
+- **Operating System:** Windows
+- **Management Model:** Standalone EC2 (no ASG, no cluster)
 
-## Utilization Signals
-- CPU shows burst-driven spikes with idle headroom between jobs
-- Memory dominated by JVM and batch job components (~400 GB node)
-- Load increases during job execution windows
-- No sustained disk or network pressure
+## Observed Signals
+- CPU utilization consistently below ~50% (p95) over a 7-day window
+- No burst-driven workload patterns observed
+- No autoscaling, scheduler, or cluster ownership detected
+- Identified via Datadog Cloud Cost rightsizing recommendation
+- Monthly cost estimated at ~$830 with ~50% downsizing opportunity
 
-## Cost Signal
-- Daily net amortized cost: ~$23/day
-- Cost is stable and predictable
-- Individually small, material at cluster scale
-- Cost derived via resource-level AWS CUR query (daily net amortized cost)
+## Why This Is a Valid Rightsizing Candidate
+- Capacity is not shared or absorbed by a cluster
+- No evidence of batch, burst, or failover-driven sizing requirements
+- Persistent CPU headroom suggests overprovisioning
+- Cost signal is clear and attributable at the instance level
+
+## Risks and Gaps
+- Memory utilization not available (Datadog agent not installed)
+- Windows workloads may be memory-sensitive
+- Disk and network behavior not fully observable
+
+These are validation gaps, not architectural blockers.
 
 ## Decision Logic
-- This node is part of an EMR-managed cluster
-- Low utilization reflects batch workload patterns, not waste
+- Do not resize blindly
+- Treat this as a valid rightsizing candidate pending memory validation
+- Proceed only after confirming memory and service stability
 
-**Safe action:** Review cluster sizing, job parallelism, and node count  
-**Unsafe action:** Resize or terminate individual instances
+## Safe Optimization Path
+- Install Datadog or CloudWatch memory monitoring
+- Identify owning team via AWS tags or internal ownership mapping
+- Perform controlled downsize (m5.4xlarge → m5.2xlarge)
+- Monitor CPU, memory, and service health post-change
 
 ## Final Classification
-- **Status:** Valid signal, not directly actionable
-- **Optimization type:** Cluster-level
-- **Risk if misapplied:** High
+- **Status:** Actionable EC2 rightsizing candidate
+- **Optimization Type:** Instance-level
+- **Risk Level:** Medium (observability gap)
+- **Owner:** Application / platform team (to be confirmed)
 
-## FinOps Takeaway
-This instance-level signal was used to validate cluster economics, not to trigger resizing. True optimization opportunities exist at the EMR cluster configuration and job parallelism level, not per-node rightsizing.
+## Resume-Grade Takeaway
+Mapped cost and utilization for a standalone Windows EC2 instance, validated it as a true rightsizing candidate, identified observability gaps, and defined a safe, data-backed downsizing path.
+
