@@ -39,7 +39,7 @@ This volume is not referenced by any active compute resource and shows no usage 
 - Cost eliminated with no service impact
 - Pattern reusable across environments
 
-- ## Ownership & Next Step
+## Ownership & Next Step
 
 Owning team: Unknown (inferred via tags / cluster context)
 
