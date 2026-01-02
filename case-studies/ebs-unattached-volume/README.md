@@ -39,5 +39,19 @@ This volume is not referenced by any active compute resource and shows no usage 
 - Cost eliminated with no service impact
 - Pattern reusable across environments
 
+- ## Ownership & Next Step
+
+Owning team: Unknown (inferred via tags / cluster context)
+
+What I would need to proceed:
+- Confirmation of workload ownership
+- Validation of SLO / peak traffic patterns
+- Approval to act at (instance | node pool | cluster) level
+
+Status:
+- Analysis complete
+- Action intentionally paused pending owner validation
+
+
 ## FinOps Takeaway
 Unattached EBS volumes represent true waste and are safe optimization candidates when ownership and snapshot safeguards are applied.
