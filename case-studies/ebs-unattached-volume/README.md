@@ -1,4 +1,4 @@
-# Unattached EBS Volume – Cost Elimination Case Study
+# Kubernetes dynamic PVC orphan candidate (EBS gp3) in QA – Cost Elimination Case Study
 
 ## Resource
 - Type: EBS Volume
